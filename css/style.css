@@ -1,21 +1,45 @@
+/* General CSS Styles/overrides/resets */
 body {
-    font-family: monospace;
-    font-weight: 300;
-    font-size: 1.5rem;
-    line-height: 1.8rem;
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.5rem;
     text-align: center;
-    margin-top: 2rem;
+    color: #222222;
+    /* Reset Body's initial pad and margin */
+    padding: 0;
+    margin: 2rem 0 0 0;
+}
+h1, h2 {
+    font-family: 'Quattrocento', serif;
+    line-height: 2.5rem;
+    font-weight: 400;
+}
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 2.25rem;
 }
 a {
     cursor: pointer;
+    color: #4abdac;
+}
+/* CSS */
+.output {
+    padding: 1rem 0;
+    width: 100%;
+}
+.output:nth-child(odd) {
+    background: #4abdac;
+    color: #ffffff;
 }
 /* Desktop Styles */
-.ouput {
-    width: 66%;
+.ouput p, .output h2 {
+    width: 60%;
 }
 /* Phone Styles */
 @media only screen and (min-width : 600px) {
-    .output {
+    .output p, .output h2 {
         width: 85%;
         margin: 2rem auto;
     }
