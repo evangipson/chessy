@@ -3,6 +3,12 @@ var CHESSY = (function () {
   // ------
   // Create the module we'll export
   var chessyModule = {};
+  // Variables
+  // ---------
+  // These are used in more than 1 function, so
+  // they will be declared outside of function scope,
+  // in module scope.
+  var numberGenerated = 15;
   // returns a number that is random within range
   function randomNum(highNum) {
     return Math.floor(Math.random() * parseInt(highNum));
@@ -96,9 +102,30 @@ var CHESSY = (function () {
       "Rook's",
       "Queen's",
       "King's",
+      "Pawn",
+      "Knight",
+      "Bishop",
+      "Rook",
+      "Queen",
+      "King",
+      "Two Pawns",
+      "Three Pawns",
+      "Four Pawns",
+      "Two Knights",
+      "Two Bishops",
+      "Two Rooks",
       // random funny words
       "Rocketship",
+      "Pikeman's",
       "Elephant",
+      "Elephant's",
+      "Cheetah",
+      "Cheetah's",
+      "Penguin",
+      "Penguin's",
+      "Walrus",
+      "Tucan",
+      "Dancing Queen", // Young and sweet, only 17
       "Vampire's",
       "Vampire",
       "Halloween",
@@ -108,17 +135,19 @@ var CHESSY = (function () {
       "Vodka",
       "Dragon",
       "Rainbow",
-      "Rainbow Road",
+      "Rainbow Road", // Fuck Rainbow Road
       "Martini",
-      "French Fry",
+      "French Fry", // Damn that sounds good
       "Vinegar",
       "Spider",
       "Snake",
-      "Mantis"
+      "Mantis",
+      "Lotus",
     ];
     // Prefixes
     var chess_prefix = [
       "Modern",
+      "Revolving",
       // Locations
       "French",
       "Dutch",
@@ -153,7 +182,11 @@ var CHESSY = (function () {
       //"X-Ray",
       "System",
       "Game",
-      "Trap"
+      "Trap",
+      // Funny ones
+      "Kettle",
+      "Bind",
+      "Storm"
     ];
     // Suffixes
     var chess_modifiers = [
@@ -231,16 +264,67 @@ var CHESSY = (function () {
   }
   // create an array of people
   function createPeople() {
+    // Variable to hold our people and return them
     var tempPeople = [];
-    for(var i = 0; i < 15; i++) {
+    // Some prefixes to make them royal
+    var names_prefix = [
+      "Duke",
+      "Earl",
+      "Housecarl",
+      "King",
+      "Queen",
+      "Dame",
+      "Knight",
+      "Ser",
+      "Syre",
+      "Viscount",
+      "Lord",
+      "Prince",
+      "Princess",
+      "Duchess",
+      "Countess",
+      "Count",
+      "Baron",
+      "Baroness"
+    ];
+    // Suffixes
+    var names_suffix = [
+      "I",
+      "II",
+      "III",
+      "IV",
+      "V",
+      "VI",
+      "VII",
+      "VIII",
+      "IX",
+      "X",
+      "XI",
+      "XII",
+      ", Sr.",
+      ", Jr.",
+      ", PhD.",
+      ", M.D."
+    ];
+    // Determine chance for suffix and/or prefix
+    var suffixChance = 5;
+    var prefixChance = 5;
+    // Generate our people
+    for(var i = 0; i < numberGenerated; i++) {
       tempPeople[i] = createChessName() + " " + createChessName();
+      if(randomNum(100) < prefixChance) {
+        tempPeople[i] = names_prefix[randomNum(names_prefix.length)] + " " + tempPeople[i];
+      }
+      if(randomNum(100) < suffixChance) {
+        tempPeople[i] = tempPeople[i] + " " + names_suffix[randomNum(names_suffix.length)];
+      }
     }
     return tempPeople;
   }
   // create an array of openings
   function createOpenings() {
     var tempOpenings = [];
-    for(var i = 0; i < 15; i++) {
+    for(var i = 0; i < numberGenerated; i++) {
       tempOpenings[i] = createChessOpeningName();
     }
     return tempOpenings;
@@ -248,7 +332,7 @@ var CHESSY = (function () {
   // create an array of events
   function createEvents() {
     var tempEvents = [];
-    for(var i = 0; i < 15; i++) {
+    for(var i = 0; i < numberGenerated; i++) {
       tempEvents[i] = createChessEvent();
     }
     return tempEvents;
