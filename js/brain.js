@@ -8,7 +8,7 @@ var CHESSY = (function () {
   // These are used in more than 1 function, so
   // they will be declared outside of function scope,
   // in module scope.
-  var numberGenerated = 25;
+  var numberGenerated = 50;
   // returns a number that is random within range
   function randomNum(highNum) {
     return Math.floor(Math.random() * parseInt(highNum));
@@ -286,10 +286,13 @@ var CHESSY = (function () {
     // And return the event!
     return "The " + event + " (" + year + ")";
   }
-  // create an array of people
-  function createPeople() {
-    // Variable to hold our people and return them
-    var tempPeople = [];
+  // generate just one person
+  function createPerson() {
+    // We're returning this
+    var tempPerson = "";
+    // Determine chance for suffix and/or prefix
+    var suffixChance = 5;
+    var prefixChance = 5;
     // Some prefixes to make them royal
     var names_prefix = [
       "Duke",
@@ -317,31 +320,28 @@ var CHESSY = (function () {
       "II",
       "III",
       "IV",
-      "V",
-      "VI",
-      "VII",
-      "VIII",
-      "IX",
-      "X",
-      "XI",
-      "XII",
       " Sr.",
       " Jr.",
       " PhD.",
       " M.D."
     ];
-    // Determine chance for suffix and/or prefix
-    var suffixChance = 5;
-    var prefixChance = 5;
+    // Generate the person
+    tempPerson = createChessName() + " " + createChessName();
+    if(randomNum(100) < prefixChance) {
+      tempPerson = names_prefix[randomNum(names_prefix.length)] + " " + tempPerson;
+    }
+    if(randomNum(100) < suffixChance) {
+      tempPerson = tempPerson + " " + names_suffix[randomNum(names_suffix.length)];
+    }
+    return tempPerson;
+  }
+  // create an array of people
+  function createPeople() {
+    // Variable to hold our people and return them
+    var tempPeople = [];
     // Generate our people
     for(var i = 0; i < numberGenerated; i++) {
-      tempPeople[i] = createChessName() + " " + createChessName();
-      if(randomNum(100) < prefixChance) {
-        tempPeople[i] = names_prefix[randomNum(names_prefix.length)] + " " + tempPeople[i];
-      }
-      if(randomNum(100) < suffixChance) {
-        tempPeople[i] = tempPeople[i] + " " + names_suffix[randomNum(names_suffix.length)];
-      }
+      tempPeople[i] = createPerson();
     }
     return tempPeople;
   }
@@ -361,12 +361,30 @@ var CHESSY = (function () {
     }
     return tempEvents;
   }
+  // create a chess quote using our
+  // random pieces
+  function createQuote() {
+    // Return a bunch of different quotes
+    if(randomNum(100) < 50) {
+      return createPerson() + " used the " + createChessOpeningName() + ", even though he favors the " + createChessOpeningName() + "."; 
+    }
+    if(randomNum(100) < 50) {
+      return "I remember the game between " + createPerson() + " and " + createPerson() + " at the " + createChessEvent() + "... white played the " + createChessOpeningName() + " while black responded with the " + createChessOpeningName() + ".";
+    }
+    if(randomNum(100) < 50) { 
+      return createPerson() + " would never use the " + createChessOpeningName() + " - it's far too risky against the " + createChessOpeningName() + "!";
+    }
+    return "Wow! The " + createChessOpeningName() + " is being played by " + createPerson() + ", and against " + createPerson();
+  }
   // function that initializes chessy!
   chessyModule.init = function() {
+    // Get our data
     var people = createPeople();
     var openings = createOpenings();
     var events = createEvents();
-    // actually fill up the html
+    var quote = createQuote();
+    // Fill up the html
+    // ----------------
     // people
     $(people).each(function(i) {
       // We're on the last person and we
@@ -403,6 +421,8 @@ var CHESSY = (function () {
         $(".events").append(events[i] + ", ");
       }
     });
+    // quote
+    $(".quote").html("\"" + quote + "\"");
   };
   // we have to give back our module to
   // get that init function now.
