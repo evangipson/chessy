@@ -1,0 +1,22 @@
+body {
+    font-family: monospace;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+a {
+    cursor: pointer;
+}
+/* Desktop Styles */
+.ouput {
+    width: 66%;
+}
+/* Phone Styles */
+@media only screen and (min-width : 600px) {
+    .output {
+        width: 85%;
+        margin: 2rem auto;
+    }
+}

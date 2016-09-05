@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- Set viewport for mobile devices -->
+        <meta name="viewport" content="width=device-width" />
+        <!-- Meta information for Google -->
+        <meta name="author" content="Evan Gipson" />
+        <meta name="description" content="Chessy will generate you a whole bunch of chessy words!" />
+        <!-- TODO: Picture for social media shares 
+        <meta property="og:image" content="image here (absolute URL)" />
+        <link rel="image_src" type="image/png" href="image here (absolute URL)" /> -->
+        <!-- TODO: Google site verification for optimal search results
+        <meta name="google-site-verification" content="code here" /> -->
+        <!-- Website title -->
+        <title>Chessy</title>
+        <!-- Set the chart favicon
+        <link rel="shortcut icon" href="icon here (absolute URL)" /> -->
+        <!-- Yay let's link in my style -->
+        <!-- TODO: Minify style -->
+        <link rel="stylesheet" href="./css/style.css" media="none" onload="if(media!='all')media='all'" />
+        <!-- Also let's take in font-awesome for icons
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'" /> -->
+    </head>
+    <body>
+        <h1><a href="http://evangipson.com/chessy">Chessy</a></h1>
+        <div class="output">
+            <h2>Famous grandmasters</h2>
+            <p class="people"></p>
+        </div>
+        <div class="output">
+            <h2>Famous openings, defenses, and moves</h2>
+            <p class="openings"></p>
+        </div>
+        <div class="output">
+            <h2>Famous events</h2>
+            <p class="events"></p>
+        </div>
+        <script src="./js/brain.js"></script>
+    </body>
+</html>
