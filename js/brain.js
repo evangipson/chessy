@@ -8,7 +8,7 @@ var CHESSY = (function () {
   // These are used in more than 1 function, so
   // they will be declared outside of function scope,
   // in module scope.
-  var numberGenerated = 15;
+  var numberGenerated = 25;
   // returns a number that is random within range
   function randomNum(highNum) {
     return Math.floor(Math.random() * parseInt(highNum));
@@ -22,6 +22,30 @@ var CHESSY = (function () {
       "Ban",
       "Bam",
       "Che",
+      "Chi",
+      "Cha",
+      "Hi",
+      "He",
+      "Del",
+      "Dip",
+      "Ev",
+      "Kev",
+      "Kin",
+      "Kee",
+      "Kag",
+      "Jen",
+      "Shy",
+      "Sty",
+      "Gia",
+      "Mich",
+      "Bel",
+      "Don",
+      "Rem",
+      "Cro",
+      "Jame",
+      "Mil",
+      "Mor",
+      "Mon",
       "Ni",
       "Nu",
       "Swe",
