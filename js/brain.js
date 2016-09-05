@@ -270,7 +270,7 @@ var CHESSY = (function () {
       "Open",
       "Tournament",
       "Memorial"
-    ]
+    ];
     // Start with generating a year
     var year = randomNum(9) + 10;
     var year_suffix = randomNum(9).toString() + randomNum(9).toString();
