@@ -1,4 +1,4 @@
-# chessy
+# Chessy
 Chessy is a Javascript website that will generate you a whole bunch of chessy words!
 
 | Chessy Readme |
