@@ -58,13 +58,17 @@ a:hover {
     color: #ffffff;
 }
 /* Desktop Styles */
-.ouput p, .output h2 {
+h2, p {
     width: 60%;
+    margin: 2rem auto;
 }
 /* Phone Styles */
-@media only screen and (min-width : 600px) {
-    .output p, .output h2 {
+@media only screen and (max-width : 600px) {
+    body {
+        font-size: 20px;
+        line-height: 2rem;
+    }
+    h2, p {
         width: 85%;
-        margin: 2rem auto;
     }
 }
