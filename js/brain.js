@@ -356,7 +356,7 @@ var CHESSY = (function () {
   // create an array of events
   function createEvents() {
     var tempEvents = [];
-    for(var i = 0; i < numberGenerated; i++) {
+    for(var i = 0; i < Math.floor(numberGenerated * 0.5); i++) {
       tempEvents[i] = createChessEvent();
     }
     return tempEvents;
@@ -374,7 +374,7 @@ var CHESSY = (function () {
     if(randomNum(100) < 50) { 
       return createPerson() + " would never use the " + createChessOpeningName() + " - it's far too risky against the " + createChessOpeningName() + "!";
     }
-    return "Wow! The " + createChessOpeningName() + " is being played by " + createPerson() + ", and against " + createPerson();
+    return "Here we are at " + createChessEvent() + ", and the " + createChessOpeningName() + " is being played by " + createPerson() + " against " + createPerson() + "!";
   }
   // function that initializes chessy!
   chessyModule.init = function() {
@@ -383,6 +383,13 @@ var CHESSY = (function () {
     var openings = createOpenings();
     var events = createEvents();
     var quote = createQuote();
+    // shift out our first word in quote
+    var quoteWords = quote.split(" ");
+    var firstWord = quoteWords.shift();
+    // put in span in our quote for presentation purposes
+    firstWord = "<span class=\"first-letter\">&ldquo;" + firstWord + " </span>";
+    // reassemble our quote
+    quote = firstWord + quoteWords.join(" ") + "&rdquo;";
     // Fill up the html
     // ----------------
     // people
@@ -422,7 +429,7 @@ var CHESSY = (function () {
       }
     });
     // quote
-    $(".quote").html("\"" + quote + "\"");
+    $(".quote").html(quote);
   };
   // we have to give back our module to
   // get that init function now.

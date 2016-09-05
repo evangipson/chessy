@@ -1,8 +1,8 @@
 /* General CSS Styles/overrides/resets */
 body {
     font-family: 'Quattrocento Sans', sans-serif;
-    font-size: 1.15rem;
-    line-height: 1.5rem;
+    font-size: 18px;
+    line-height: 1.75rem;
     text-align: center;
     color: #222222;
     /* Reset Body's initial pad and margin */
@@ -21,15 +21,33 @@ h2 {
     font-size: 2.25rem;
 }
 a {
+    position: relative;
     cursor: pointer;
+    border: 0.19rem solid #4abdac;
     color: #4abdac;
+    padding: .4rem .25rem .15rem;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    top: .1rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: top 175ms, box-shadow 175ms;
+}
+a:hover {
+    top: 0rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 /* CSS */
 .quote {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    line-height: 2.1rem;
+}
+.first-letter {
     font-family: 'Quattrocento', serif;
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    line-height: 2.25rem;
+    font-size: 2.15rem;
+    position: relative;
+    top: .1rem;
+    left: .1rem;
 }
 .output {
     padding: 1rem 0;
