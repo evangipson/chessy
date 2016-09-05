@@ -301,10 +301,10 @@ var CHESSY = (function () {
       "X",
       "XI",
       "XII",
-      ", Sr.",
-      ", Jr.",
-      ", PhD.",
-      ", M.D."
+      " Sr.",
+      " Jr.",
+      " PhD.",
+      " M.D."
     ];
     // Determine chance for suffix and/or prefix
     var suffixChance = 5;
