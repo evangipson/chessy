@@ -218,8 +218,8 @@ var CHESSY = (function () {
       "Reversed"
     ];
     // Now assemble the actual opening/defense name.
-    // 65% chance we'll have a piece or territory as the base.
-    if(randomNum(100) < 65) {
+    // 75% chance we'll have a piece or territory as the base.
+    if(randomNum(100) < 75) {
       // If we're using a piece, 40% chance to start with our prefix!
       if(randomNum(100) < 40) {
         openingName = chess_prefix[randomNum(chess_prefix.length)];
@@ -316,8 +316,6 @@ var CHESSY = (function () {
     ];
     // Suffixes
     var names_suffix = [
-      "I",
-      "II",
       "III",
       "IV",
       " Sr.",
@@ -364,17 +362,18 @@ var CHESSY = (function () {
   // create a chess quote using our
   // random pieces
   function createQuote() {
-    // Return a bunch of different quotes
-    if(randomNum(100) < 50) {
-      return createPerson() + " used the " + createChessOpeningName() + ", even though he favors the " + createChessOpeningName() + "."; 
-    }
-    if(randomNum(100) < 50) {
-      return "I remember the game between " + createPerson() + " and " + createPerson() + " at the " + createChessEvent() + "... white played the " + createChessOpeningName() + " while black responded with the " + createChessOpeningName() + ".";
-    }
-    if(randomNum(100) < 50) { 
-      return createPerson() + " would never use the " + createChessOpeningName() + " - it's far too risky against the " + createChessOpeningName() + "!";
-    }
-    return "Here we are at " + createChessEvent() + ", and the " + createChessOpeningName() + " is being played by " + createPerson() + " against " + createPerson() + "!";
+    // Set up array of a ton of quotes
+    var quotes = [
+      createPerson() + " used the " + createChessOpeningName() + ", even though he favors the " + createChessOpeningName() + " with the black pieces.",
+      "I remember the game between " + createPerson() + " and " + createPerson() + " at the " + createChessEvent() + "... white played the " + createChessOpeningName() + " while black responded with the " + createChessOpeningName() + ".",
+      createPerson() + " would never use the " + createChessOpeningName() + " - it's far too risky against the " + createChessOpeningName() + "!",
+      createPerson() + " has a long history of playing the " + createChessOpeningName() + " but here at the " + createChessEvent() + " he elected for the " + createChessOpeningName() + " with the white pieces.",
+      "It's typical in the " + createChessOpeningName() + " for e4 to be under fire, but " + createPerson() + " has done something marvelous with the white pieces! It's almost looking like a " + createChessOpeningName() + " but with the white pieces instead.",
+      "What a dynamic game revolving around d4 and e6 taking place between " + createPerson() + " and the ferocious " + createPerson() + ". It started in a sort of " + createChessOpeningName() + " for the white pieces, then transformed into a " + createChessOpeningName() + ".",
+      "Here we are at " + createChessEvent() + ", and the " + createChessOpeningName() + " is being played by " + createPerson() + " against " + createPerson() + "!"
+    ];
+    // Return one of their quotes
+    return quotes[randomNum(quotes.length)];
   }
   // function that initializes chessy!
   chessyModule.init = function() {
